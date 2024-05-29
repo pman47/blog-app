@@ -8,7 +8,7 @@ interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
   return (
-    <header className="z-10 sticky top-0 flex h-16 items-center justify-end gap-4 bg-transparent px-4 md:px-6 md:container">
+    <header className="z-10 sticky top-0 flex h-16 items-center justify-end gap-4 bg-transparent backdrop-blur-sm px-4 md:px-6 md:container">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <Link
           href="#"
@@ -17,7 +17,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
           Works
         </Link>
         <Link
-          href="#"
+          href="/blogs"
           className="text-foreground transition-colors hover:text-muted-foreground"
         >
           Blog
