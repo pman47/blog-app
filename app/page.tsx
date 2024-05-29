@@ -8,9 +8,34 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+const featuredWorks = [
+  {
+    title: "Designing Dashboards",
+    year: "2020",
+    tag: "Dashboard",
+    desc: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+    img: "https://placehold.co/600x400/png",
+  },
+  {
+    title: "Vibrant Portraits of 2020",
+    year: "2018",
+    tag: "Illustration",
+    desc: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+    img: "https://placehold.co/600x400/png",
+  },
+  {
+    title: "36 Days of Malayalam type",
+    year: "2018",
+    tag: "Typography",
+    desc: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+    img: "https://placehold.co/600x400/png",
+  },
+];
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between">
+      {/* Hero */}
       <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between md:p-28">
         <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:max-w-[70%]">
           <h1 className="text-4xl font-bold mb-4">
@@ -35,6 +60,7 @@ export default function Home() {
           />
         </div>
       </div>
+      {/* Posts */}
       <div className="bg-[#EDF7FA] w-full mt-9 md:mt-0">
         <div className="container my-5 md:px-28">
           <p className="text-lg">Recent posts</p>
@@ -90,6 +116,34 @@ export default function Home() {
                 </p>
               </CardFooter>
             </Card>
+          </div>
+        </div>
+      </div>
+      {/* Featured Works */}
+      <div className="w-full mt-9 md:mt-0">
+        <div className="container my-5 md:px-28 flex flex-col gap-5">
+          <p className="text-lg">Featured works</p>
+          <div className="w-full flex flex-col gap-6">
+            {featuredWorks.map((work) => (
+              <div
+                className="flex flex-col sm:flex-row gap-4 border-b pb-6"
+                key={work.title}
+              >
+                <div className="aspect-[4/3] w-full sm:w-60 relative rounded-md overflow-hidden">
+                  <Image src={work.img} alt="work image" fill />
+                </div>
+                <div className="w-full flex flex-col gap-5">
+                  <h2 className="text-3xl font-bold">{work.title}</h2>
+                  <div className="flex flex-row gap-4">
+                    <span className="bg-black text-white rounded-full font-bold px-3 py-1 text-sm">
+                      {work.year}
+                    </span>
+                    <span className="text-gray-400 text-base">{work.tag}</span>
+                  </div>
+                  <div className="text-base">{work.desc}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
