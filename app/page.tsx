@@ -69,7 +69,7 @@ export default function Home() {
             sint. Velit officia consequat duis enim velit mollit. Exercitation
             veniam consequat sunt nostrud amet.
           </p>
-          <button className="bg-red-500 text-white py-2 px-4 rounded">
+          <button className="bg-red-500 text-white py-2 px-4 rounded transition duration-300 hover:bg-red-600">
             Download Resume
           </button>
         </div>
@@ -87,7 +87,10 @@ export default function Home() {
           <p className="text-lg">Recent posts</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mt-3">
             {recentPosts.map((post) => (
-              <Card className="border-none rounded-none" key={post.title}>
+              <Card
+                className="border-none rounded-none transform hover:scale-105 transition duration-300"
+                key={post.title}
+              >
                 <CardHeader>
                   <CardTitle className="font-bold leading-8">
                     {post.title}
