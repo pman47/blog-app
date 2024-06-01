@@ -1,4 +1,4 @@
-import LightBoxImage from "@/components/LightBoxImage";
+import BlogPost from "@/components/BlogPost";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import fs from "fs";
@@ -48,27 +48,7 @@ export default async function Page({ searchParams }: BlogPostsProps) {
       <div className="w-full mt-9">
         <div className="w-full flex flex-col">
           {blogPosts.map((blog) => (
-            <div
-              className="flex flex-col sm:flex-row gap-4 border-b p-6 group hover:bg-gray-200 rounded-lg hover:scale-105 hover:shadow-2xl"
-              key={blog.id}
-            >
-              <LightBoxImage imgSrc={blog.thumbnail} />
-              <div className="w-full flex flex-col gap-5">
-                <h2 className="text-3xl font-bold group-hover:text-[#FF6464]">
-                  {blog.title}
-                </h2>
-                <div className="flex flex-row gap-2 group-hover:font-semibold">
-                  <span className="text-base whitespace-nowrap">
-                    {blog.date}
-                  </span>{" "}
-                  |
-                  <span className="text-gray-500 text-base">{blog.author}</span>
-                </div>
-                <div className="text-base group-hover:font-semibold">
-                  {blog.description}
-                </div>
-              </div>
-            </div>
+            <BlogPost blog={blog} key={blog.id} />
           ))}
         </div>
       </div>
