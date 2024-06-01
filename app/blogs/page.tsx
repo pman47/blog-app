@@ -1,21 +1,25 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import fs from "fs";
 import Image from "next/image";
 import path from "path";
+import LightBoxImage from "@/components/LightBoxImage";
 
 interface BlogPostsProps {
   searchParams?: { query?: string };
 }
 
-async function getBlogPosts(searchQuery: string = "") {
+async function getBlogPosts(searchQuery: string = ""): Promise<BlogPost[]> {
   const filePath = path.join(process.cwd(), "data", "blogPosts.json");
   const fileContents = fs.readFileSync(filePath, "utf8");
   let blogPosts: BlogPost[] = JSON.parse(fileContents);
 
   if (searchQuery) {
-    blogPosts = blogPosts.filter((blog) =>
-      blog.title.toLowerCase().includes(searchQuery.toLowerCase())
+    blogPosts = blogPosts.filter(
+      (blog) =>
+        blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        blog.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }
 
@@ -50,16 +54,7 @@ export default async function Page({ searchParams }: BlogPostsProps) {
               className="flex flex-col sm:flex-row gap-4 border-b pb-6"
               key={blog.id}
             >
-              <div className="aspect-video w-full sm:w-96 relative rounded-md overflow-hidden">
-                <Image
-                  src={blog.thumbnail}
-                  alt="work image"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, 640px"
-                  priority
-                />
-              </div>
+              <LightBoxImage imgSrc={blog.thumbnail} />
               <div className="w-full flex flex-col gap-5">
                 <h2 className="text-3xl font-bold">{blog.title}</h2>
                 <div className="flex flex-row gap-2">
