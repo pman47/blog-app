@@ -64,8 +64,8 @@ export default function Home() {
       <div className="bg-[#EDF7FA] w-full mt-9 md:mt-0">
         <div className="container my-5 md:px-28">
           <p className="text-lg">Recent posts</p>
-          <div className="flex flex-row items-start justify-start gap-4 w-full mt-3 flex-wrap">
-            <Card className="flex-1 max-w-96 border-none rounded-none min-w-60">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mt-3">
+            <Card className="border-none rounded-none">
               <CardHeader>
                 <CardTitle className="font-bold leading-8">
                   Making a design system from scratch
@@ -82,7 +82,7 @@ export default function Home() {
                 </p>
               </CardFooter>
             </Card>
-            <Card className="flex-1 max-w-96 border-none rounded-none min-w-60">
+            <Card className="border-none rounded-none">
               <CardHeader>
                 <CardTitle className="font-bold leading-8">
                   Creating pixel perfect icons in Figma
@@ -99,7 +99,7 @@ export default function Home() {
                 </p>
               </CardFooter>
             </Card>
-            <Card className="flex-1 max-w-96 border-none rounded-none min-w-60">
+            <Card className="border-none rounded-none">
               <CardHeader>
                 <CardTitle className="font-bold leading-8">
                   Creating pixel perfect icons in Figma

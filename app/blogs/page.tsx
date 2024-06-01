@@ -1,10 +1,21 @@
 import { FC } from "react";
-import blogPosts from "@/data/blogPosts.json";
 import Image from "next/image";
+import { GetStaticProps } from "next";
+import path from "path";
+import fs from "fs";
 
 interface BlogPostsProps {}
 
-const BlogPosts: FC<BlogPostsProps> = ({}) => {
+async function getBlogPosts() {
+  const filePath = path.join(process.cwd(), "data", "blogPosts.json");
+  const fileContents = fs.readFileSync(filePath, "utf8");
+  const blogPosts: BlogPost[] = JSON.parse(fileContents);
+
+  return blogPosts;
+}
+
+export default async function Page({}: BlogPostsProps) {
+  const blogPosts = await getBlogPosts();
   return (
     <main className="container mx-auto flex flex-col md:px-24 md:my-20 flex-1">
       <h1 className="text-3xl font-bold">Blog</h1>
@@ -25,9 +36,7 @@ const BlogPosts: FC<BlogPostsProps> = ({}) => {
                     {blog.date}
                   </span>{" "}
                   |
-                  <span className="text-gray-500 text-base">
-                    {blog.tag.join(", ")}.
-                  </span>
+                  <span className="text-gray-500 text-base">{blog.author}</span>
                 </div>
                 <div className="text-base">{blog.description}</div>
               </div>
@@ -37,6 +46,4 @@ const BlogPosts: FC<BlogPostsProps> = ({}) => {
       </div>
     </main>
   );
-};
-
-export default BlogPosts;
+}
