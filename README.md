@@ -34,7 +34,7 @@ The design of the portfolio website aims to achieve a modern and minimalist aest
 
 ## Deployment
 
-The project is deployed at [Blog post app](https://example.com).
+The project is deployed at [Blog post app](https://blog-app-pman47s-projects.vercel.app/blogs).
 
 ## Contributors
 
