@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import LightBoxImage from "@/components/LightBoxImage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import fs from "fs";
-import Image from "next/image";
 import path from "path";
-import LightBoxImage from "@/components/LightBoxImage";
 
 interface BlogPostsProps {
   searchParams?: { query?: string };
