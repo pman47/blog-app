@@ -32,6 +32,27 @@ const featuredWorks = [
   },
 ];
 
+const recentPosts = [
+  {
+    title: "Making a design system from scratch",
+    date: "12 Feb 2020",
+    tag: "Design, Pattern",
+    desc: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+  },
+  {
+    title: "Creating pixel perfect icons in Figma",
+    date: "12 Feb 2020",
+    tag: "Figma, Icon Design",
+    desc: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+  },
+  {
+    title: "36 Days of Malayalam type",
+    date: "12 Feb 2020",
+    tag: "Design, Pattern",
+    desc: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+  },
+];
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between">
@@ -65,57 +86,23 @@ export default function Home() {
         <div className="container my-5 md:px-28">
           <p className="text-lg">Recent posts</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mt-3">
-            <Card className="border-none rounded-none">
-              <CardHeader>
-                <CardTitle className="font-bold leading-8">
-                  Making a design system from scratch
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>12 Feb 2020 | Design, Pattern</p>
-              </CardContent>
-              <CardFooter>
-                <p>
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
-                  Exercitation veniam consequat sunt nostrud amet.
-                </p>
-              </CardFooter>
-            </Card>
-            <Card className="border-none rounded-none">
-              <CardHeader>
-                <CardTitle className="font-bold leading-8">
-                  Creating pixel perfect icons in Figma
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>12 Feb 2020 | Figma, Icon Design</p>
-              </CardContent>
-              <CardFooter>
-                <p>
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
-                  Exercitation veniam consequat sunt nostrud amet.
-                </p>
-              </CardFooter>
-            </Card>
-            <Card className="border-none rounded-none">
-              <CardHeader>
-                <CardTitle className="font-bold leading-8">
-                  Creating pixel perfect icons in Figma
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>12 Feb 2020 | Figma, Icon Design</p>
-              </CardContent>
-              <CardFooter>
-                <p>
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
-                  Exercitation veniam consequat sunt nostrud amet.
-                </p>
-              </CardFooter>
-            </Card>
+            {recentPosts.map((post) => (
+              <Card className="border-none rounded-none" key={post.title}>
+                <CardHeader>
+                  <CardTitle className="font-bold leading-8">
+                    {post.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    {post.date} | {post.tag}
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <p>{post.desc}</p>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
