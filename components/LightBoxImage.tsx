@@ -14,7 +14,7 @@ const LightBoxImage: React.FC<LightBoxImageProps> = ({ imgSrc }) => {
   return (
     <>
       <div
-        className="aspect-video w-full sm:w-96 relative rounded-md overflow-hidden cursor-pointer"
+        className="aspect-video w-full sm:w-96 relative cursor-pointer"
         onClick={() => {
           setOpen(true);
         }}
@@ -25,6 +25,7 @@ const LightBoxImage: React.FC<LightBoxImageProps> = ({ imgSrc }) => {
           fill
           sizes="(max-width: 640px) 100vw, 640px"
           priority
+          className="grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:-rotate-3 rounded-md"
         />
       </div>
 
